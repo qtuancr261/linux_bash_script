@@ -9,8 +9,7 @@ gnu_defVer=`g++ -dumpversion`
 
 # show the default version before switching
 echo "-> GNU Default Version: " $gnu_defVer
-echo "-> GNU Version you want to be default: " #$gnu_alterVer
-read gnu_alterVer
+read -p "-> GNU Version you want to be default: " gnu_alterVer
 # let's do the job
 if [ $gnu_defVer != $gnu_alterVer ]
 then
