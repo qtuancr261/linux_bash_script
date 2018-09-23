@@ -1,15 +1,16 @@
 #!/bin/bash
+# switch GNU gcc/g++ compiler script by tuantq3
+# ver 0.2 23/09/2018
 
-# ver 0.1 25/08/2018
 # list all the versions installed on your system
 echo "-> GNU g++ version you can choose: "
 find /usr/bin -iname "g++*"
-#switch GNU gcc/g++ compiler script by tuantq3
 gnu_defVer=`g++ -dumpversion`
-gnu_alterVer=$1
+
 # show the default version before switching
 echo "-> GNU Default Version: " $gnu_defVer
-echo "-> GNU Version you want to be default: " $gnu_alterVer
+echo "-> GNU Version you want to be default: " #$gnu_alterVer
+read gnu_alterVer
 # let's do the job
 if [ $gnu_defVer != $gnu_alterVer ]
 then
