@@ -1,2 +1,2 @@
 # linux_bash_script
-My persional bash script
+My personal bash script
