@@ -14,8 +14,11 @@ read -p "-> GNU Version you want to be default: " gnu_alterVer
 if [ $gnu_defVer != $gnu_alterVer ]
 then
     echo "Switching GNU version from " $gnu_defVer " to "  "$gnu_alterVer"
-    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$gnu_defVer 70 --slave /usr/bin/g++ g++ /usr/bin/g++-$gnu_defVer
-    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$gnu_alterVer 90 --slave /usr/bin/g++ g++ /usr/bin/g++-$gnu_alterVer
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$gnu_defVer 40 --slave /usr/bin/g++ g++ /usr/bin/g++-$gnu_defVer
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$gnu_alterVer 80 --slave /usr/bin/g++ g++ /usr/bin/g++-$gnu_alterVer
+    # that easiser
+    # need more enhancement
+    sudo update-alternatives --config g++
     g++ --version
     echo "Done"
 else
