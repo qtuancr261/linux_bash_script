@@ -18,7 +18,7 @@ then
     sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$gnu_alterVer 80 --slave /usr/bin/g++ g++ /usr/bin/g++-$gnu_alterVer
     # that easiser
     # need more enhancement
-    sudo update-alternatives --config g++
+    sudo update-alternatives --config gcc
     g++ --version
     echo "Done"
 else
