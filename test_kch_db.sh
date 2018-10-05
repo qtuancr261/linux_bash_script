@@ -8,9 +8,17 @@ ls -l /data/apps/$dbName/db_data/$dbName
 echo "Total partions: "$partitionNum
 # let's rsync
 mkdir -p /backup/$dbName
-rsync -av /data/apps/$dbName/db_data/* /backup/$dbName
+#rsync -av /data/apps/$dbName/db_data/* /backup/$dbName
 
 # do the check using kchashmgr
-#kchashmgr check 
-
+echo "cd into /backup/"$dbName
+cd /backup/$dbName
+# kchashmgr check
+for ((index=0; index<$partitionNum; index++))
+do
+    echo "#### Checking Partition " $index " ####"
+    fileName=$dbName-$index
+    kchashmgr inform -otl $fileName.kch
+    kchashmgr check -otl $fileName.kch
+done
 echo ".....Done......"
