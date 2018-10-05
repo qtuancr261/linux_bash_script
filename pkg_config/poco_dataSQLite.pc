@@ -1,0 +1,17 @@
+#POCO C++ pkg-config source file
+#Library DataSQLite
+
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: poco
+Description: POCO C++ Open Source Libraries
+Version: 1.9.0 Complete Edition
+Requires:
+Conflicts:
+Libs: -L${libdir} -lPocoDataSQLite
+Libs.private: -lcrypto 
+Cflags: -I${includedir}
+
