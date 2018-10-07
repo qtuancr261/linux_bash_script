@@ -3,13 +3,11 @@
 # you need to install  kchashmgr for this test
 # kchashmgr is a Command line Utilities of Kytoto Cabinet to manage the file hash database
 # by tuantq3
-
 userName=`id -u -n`
 dbName=$1
 partitionNum=$2
 dbLocation="/data/apps/"$dbName"/db_data/"$dbName
 dbBackupLocation="/backup/"$dbName
-
 echo "The test will backup kch db files from /data/apps/"$dbName"/db_data/"$dbName" to /backup/"$dbName
 echo "-------------------------------------------------------------------------------------------------------------------------"
 # list all the db files
@@ -24,7 +22,6 @@ rsync -av $dbLocation/* $dbBackupLocation
 # do the check using kchashmgr
 echo "-> cd into " $dbBackupLocation
 cd $dbBackupLocation
-
 # kchashmgr check
 for ((index=0; index<$partitionNum; index++))
 do
