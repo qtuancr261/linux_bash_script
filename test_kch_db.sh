@@ -3,6 +3,7 @@
 # you need to install  kchashmgr for this test
 # kchashmgr is a Command line Utilities of Kytoto Cabinet to manage the file hash database
 # by tuantq3
+
 userName=`id -u -n`
 dbName=$1
 partitionNum=$2
