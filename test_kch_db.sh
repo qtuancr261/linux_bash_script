@@ -36,7 +36,8 @@ echo "-> cd into " $dbBackupLocation
 cd $dbBackupLocation
 # kchashmgr check
 for ((index=0; index<$partitionNum; index++))
-do
+do  
+    startTime=$(date +%M)
     echo "---------Checking Partition " $index " ---------------"
     fileName=$dbName-$index
     echo "Analyzing file: "$fileName.kch 
@@ -51,6 +52,8 @@ do
     kchashmgr check -onr $fileName.kch
     check_kchashmgr_result
     echo "------------------------------------------------------"
+    endTime=$(date +%M)
+    echo "START.$startTime.END.$endTime"
 done
 echo ".....Done......"
 cd ..
