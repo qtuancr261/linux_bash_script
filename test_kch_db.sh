@@ -6,8 +6,20 @@
 userName=`id -u -n`
 dbName=$1
 partitionNum=$2
+passedTests=0
+failedTests=0
 dbLocation="/data/apps/"$dbName"/db_data/"$dbName
 dbBackupLocation="/backup/"$dbName
+
+check_kchashmgr_result(){
+    if [ $? == 0 ]
+    then
+        ((++passedTests))
+    else
+        ((++failedTests)) 
+    fi
+}
+
 echo "The test will backup kch db files from /data/apps/"$dbName"/db_data/"$dbName" to /backup/"$dbName
 echo "-------------------------------------------------------------------------------------------------------------------------"
 # list all the db files
@@ -31,11 +43,20 @@ do
     kchashmgr inform -otl $fileName.kch
     # check with try lock option
     kchashmgr check -otl $fileName.kch
+    check_kchashmgr_result
     # check with no lock option
     kchashmgr check -onl $fileName.kch
+    check_kchashmgr_result
     # check with no repair option
     kchashmgr check -onr $fileName.kch
+    check_kchashmgr_result
     echo "------------------------------------------------------"
 done
-
 echo ".....Done......"
+cd ..
+# Output the result test (or write to log)
+totalTest=$((partitionNum*3))
+writeLogTime=$(date +"%A %d/%m/%Y %H:%M:%S")
+echo $writeLogTime " -> Passed Tests: " $passedTests "/" $totalTest >> "$dbName.checkLog.ini" 
+
+
