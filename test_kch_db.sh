@@ -56,10 +56,14 @@ do
     echo "START.$startTime.END.$endTime"
 done
 echo ".....Done......"
-cd ..
+
 # Output the result test (or write to log)
 totalTest=$((partitionNum*3))
-writeLogTime=$(date +"%A %d/%m/%Y %H:%M:%S")
+writeLogTime=$(date +"%A_%d%m%Y_%H.%M.%S")
 echo $writeLogTime " -> Passed Tests: " $passedTests "/" $totalTest >> "$dbName.checkLog.ini" 
 
-
+# zip the kch file 
+compressedFileName=$dbName"_"$writeLogTime-$passedTests"_"$totalTest.zip 
+echo $compressedFileName
+zip $compressedFileName $dbName-*
+cd ..
