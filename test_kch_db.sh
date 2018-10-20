@@ -55,7 +55,6 @@ do
     endTime=$(date +%M)
     echo "START.$startTime.END.$endTime"
 done
-echo ".....Done......"
 
 # Output the result test (or write to log)
 totalTest=$((partitionNum*3))
@@ -66,4 +65,5 @@ echo $writeLogTime " -> Passed Tests: " $passedTests "/" $totalTest >> "$dbName.
 compressedFileName=$dbName"_"$writeLogTime-$passedTests"_"$totalTest.zip 
 echo $compressedFileName
 zip $compressedFileName $dbName-*
-cd ..
+echo ".....Done......"
+cd
