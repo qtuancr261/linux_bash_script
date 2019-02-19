@@ -5,12 +5,13 @@ userName=`id -u -n`
 serverName=$1
 clientName=$2
 clientOption_1=$3
-clientOption_2=$4
+#clientOption_2=$4
+numInstances=$4
 # suppose we're in zeventbus folder
 ./bin/$serverName &
-for ((instanceIndex=1; instanceIndex<=5; ++instanceIndex))
+for ((instanceIndex=1; instanceIndex<=$numInstances; ++instanceIndex))
 do
     echo "Run watcher instance "$instanceIndex
     ./$clientName/bin_58_4_clone_$instanceIndex/$clientName"d" -$clientOption_1 &
-    ./$clientName/bin_58_4_clone_$instanceIndex/$clientName"d" -$clientOption_2 &
+    #./$clientName/bin_58_4_clone_$instanceIndex/$clientName"d" -$clientOption_2 &
 done
