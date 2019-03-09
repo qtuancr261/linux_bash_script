@@ -12,6 +12,6 @@ numInstances=$4
 for ((instanceIndex=1; instanceIndex<=$numInstances; ++instanceIndex))
 do
     echo "Run watcher instance "$instanceIndex
-    ./$clientName/bin_58_4_clone_$instanceIndex/$clientName"d" -$clientOption_1 &
+    ./$clientName/bin_clone_$instanceIndex/$clientName"d" -$clientOption_1 &
     #./$clientName/bin_58_4_clone_$instanceIndex/$clientName"d" -$clientOption_2 &
 done
