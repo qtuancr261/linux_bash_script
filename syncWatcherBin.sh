@@ -16,11 +16,13 @@ then
 else
     for ((cloneIndex=1; cloneIndex<=$numClones; ++cloneIndex))
     do
+        mkdir bin_clone_$cloneIndex
         if [ $mode = "bin" ]
         then
-            echo "Bin mode"
+            rsync -av bin/watcher_clientd bin_clone_$cloneIndex/ 
         else
-            echo "All files mode"
+            # $mode = "all"
+            rsync -rav bin/* bin_clone_$cloneIndex/ 
         fi
     done
 fi
