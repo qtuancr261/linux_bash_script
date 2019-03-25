@@ -13,12 +13,12 @@ newestCmlDir=""
 
 #get newest cml folder
 cd $dbDataLocation
-for dir in ./*; do
-    if [dir > newestCmlDir]; then
-        echo $newestCmlDir
+for dir in */; do
+    if [ "$dir" \> "$newestCmlDir" ]; then
+        newestCmlDir=$dir
     fi
 done
-
+echo "Newest dir: "$newestCmlDir
 #check service status
 
 # while true;
@@ -28,22 +28,22 @@ done
 #     done
 # done
 
-echo "The cript will backup newest dump file from /data/apps/"$dbName"/commitlog/"$dbName" to "$userHomeDir"/"$dbName
-echo "And restart server"
-echo "-------------------------------------------------------------------------------------------------------------------------"
-# list cml
-ls -al $dbDataLocation
-# let's rsync
-echo "-> making backup folder in "$userHomeDir/$dbName
-mkdir -p $userHomeDir/$dbName
-# get newest dump file and move it to 
-cd $dbDataLocation
-newestCmlDir=`ls -td -- */ | head -n 1`
-echo $newestCmlDir
-mv -v $newestCmlDir $dbBackupLocation
-# restart server
-cd $dbBinLocation
-./runservice start
+# echo "The cript will backup newest dump file from /data/apps/"$dbName"/commitlog/"$dbName" to "$userHomeDir"/"$dbName
+# echo "And restart server"
+# echo "-------------------------------------------------------------------------------------------------------------------------"
+# # list cml
+# ls -al $dbDataLocation
+# # let's rsync
+# echo "-> making backup folder in "$userHomeDir/$dbName
+# mkdir -p $userHomeDir/$dbName
+# # get newest dump file and move it to 
+# cd $dbDataLocation
+# newestCmlDir=`ls -td -- */ | head -n 1`
+# echo $newestCmlDir
+# mv -v $newestCmlDir $dbBackupLocation
+# # restart server
+# cd $dbBinLocation
+# ./runservice start
 #########################################
 # # kchashmgr check
 # for ((index=0; index<$partitionNum; index++))
