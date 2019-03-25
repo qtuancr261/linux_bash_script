@@ -1,48 +1,68 @@
 #!/bin/bash
 # Auto restart DMPActiveUserListV2
-# check db status here
 # by tuantq3
 userName=`id -u -n`
 dbName="dmpactiveuserlistv2"
 dbType="strlist64bm"
-partitionNum=$2
-dbLocation="/data/apps/"$dbName"/commitlog/"$dbName
-dbBackupLocation="/backup/"$dbName
+userHomeDir="/home/"$userName
+dbDataLocation="/data/apps/"$dbName"/commitlog/"$dbType
+dbBinLocation="/zserver/apps/dmp/DMPActiveUserListV2-2.2.24.214/bin"
+dbBackupLocation=$userHomeDir"/"$dbName
 dbArg="-r:cml "
+newestCmlDir=""
 
-echo "The test will backup kch db files from /data/apps/"$dbName"/commitlog/"$dbName" to /backup/"$dbName
-echo "-------------------------------------------------------------------------------------------------------------------------"
-# list all the db files
-ls -l /data/apps/$dbName/commitlog/$dbName
-echo "Total partions: "$partitionNum
-# let's rsync
-echo "-> making backup folder in /backup/"$dbName
-sudo mkdir -p $dbBackupLocation
-sudo chown -R $userName:$userName $dbBackupLocation
-rsync -av $dbLocation/* $dbBackupLocation
-
-# do the check using kchashmgr
-echo "-> cd into " $dbBackupLocation
-cd $dbBackupLocation
-# kchashmgr check
-for ((index=0; index<$partitionNum; index++))
-do  
-    startTime=$(date +%M)
-    echo "---------Checking Partition " $index " ---------------"
-    fileName=$dbName-$index
-    echo "------------------------------------------------------"
-    endTime=$(date +%M)
-    echo "START.$startTime.END.$endTime"
+#get newest cml folder
+cd $dbDataLocation
+for dir in ./*; do
+    if [dir > newestCmlDir]; then
+        echo $newestCmlDir
+    fi
 done
 
-# Output the result test (or write to log)
-totalTest=$((partitionNum*3))
-writeLogTime=$(date +"%A_%d%m%Y_%H.%M.%S")
-echo $writeLogTime " -> Passed Tests: " $passedTests "/" $totalTest >> "$dbName.checkLog.ini" 
+#check service status
 
-# zip the kch file 
-compressedFileName=$dbName"_"$writeLogTime-$passedTests"_"$totalTest.zip 
-echo $compressedFileName
-zip $compressedFileName $dbName-*
-echo ".....Done......"
-cd
+# while true;
+# do
+#     for dir in ./* do
+#         echo dir
+#     done
+# done
+
+echo "The cript will backup newest dump file from /data/apps/"$dbName"/commitlog/"$dbName" to "$userHomeDir"/"$dbName
+echo "And restart server"
+echo "-------------------------------------------------------------------------------------------------------------------------"
+# list cml
+ls -al $dbDataLocation
+# let's rsync
+echo "-> making backup folder in "$userHomeDir/$dbName
+mkdir -p $userHomeDir/$dbName
+# get newest dump file and move it to 
+cd $dbDataLocation
+newestCmlDir=`ls -td -- */ | head -n 1`
+echo $newestCmlDir
+mv -v $newestCmlDir $dbBackupLocation
+# restart server
+cd $dbBinLocation
+./runservice start
+#########################################
+# # kchashmgr check
+# for ((index=0; index<$partitionNum; index++))
+# do  
+#     startTime=$(date +%M)
+#     echo "---------Checking Partition " $index " ---------------"
+#     fileName=$dbName-$index
+#     echo "------------------------------------------------------"
+#     endTime=$(date +%M)
+#     echo "START.$startTime.END.$endTime"
+# done
+
+# # Output the result test (or write to log)
+# totalTest=$((partitionNum*3))
+# writeLogTime=$(date +"%A_%d%m%Y_%H.%M.%S")
+# echo $writeLogTime " -> Passed Tests: " $passedTests "/" $totalTest >> "$dbName.checkLog.ini" 
+
+# # zip the kch file 
+# compressedFileName=$dbName"_"$writeLogTime-$passedTests"_"$totalTest.zip 
+# echo $compressedFileName
+# zip $compressedFileName $dbName-*
+# echo ".....Done......"
