@@ -4,7 +4,8 @@
 clientName=watcher_client
 nproc=`nproc --all`
 mode=$1
-numClones=$2
+numInstances=$2
+nwatchers=$3
 # build 
 cd watcher_client/
 make clean
@@ -12,17 +13,17 @@ make -j$nproc
 # clone
 if [ "x$1" = "x" ]
 then
-    echo "usage $0 cloneNum mode(bin only or all)"
+    echo "usage $0 numInstances mode(bin only or all)"
 else
-    for ((cloneIndex=1; cloneIndex<=$numClones; ++cloneIndex))
+    for ((instancesIndex=1; instancesIndex\<=$numInstances; ++instancesIndex))
     do
-        mkdir bin_clone_$cloneIndex
+        mkdir bin_clone_$instancesIndex
         if [ $mode = "bin" ]
         then
-            rsync -av bin/watcher_clientd bin_clone_$cloneIndex/ 
+            rsync -av bin/watcher_clientd bin_clone_$instancesIndex/ 
         else
             # $mode = "all"
-            rsync -rav bin/* bin_clone_$cloneIndex/ 
+            rsync -rav bin/* bin_clone_$instancesIndex/ 
         fi
     done
 fi
