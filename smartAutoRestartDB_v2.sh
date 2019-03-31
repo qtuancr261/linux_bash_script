@@ -5,7 +5,8 @@
 dbName="dmpactiveuserlistv2"
 dbType="strlist64bm"
 dbDataLocation="/data/apps/"$dbName"/commitlog/"$dbType
-dbBinLocation="/zserver/apps/dmp/DMPActiveUserListV2-2.2.24.237/bin/strlist64bmserver"
+dbBin="/zserver/apps/dmp/DMPActiveUserListV2-2.2.24.237/bin/strlist64bmserver"
+dbBinLocation="/zserver/apps/dmp/DMPActiveUserListV2-2.2.24.237/bin/"
 dbBackupLocation="/data/apps/"$dbName"/commitlog/debug_data"
 
 #check db status
@@ -13,7 +14,7 @@ while true;
 do
     while true;
     do 
-        FINDAPP=`ps -x | grep $dbBinLocation | grep -v "grep"` 
+        FINDAPP=`ps -x | grep $dbBin | grep -v "grep"` 
         #echo $FINDAPP
         if [[ $FINDAPP = "" ]]; then 
             break
