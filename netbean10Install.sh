@@ -5,18 +5,21 @@ binDownloadLink="http://mirrors.viethosting.com/apache/incubator/netbeans/incuba
 configDownloadLink="https://www.dropbox.com/s/md9quy42smf3onv/netbeansconf.zip?dl=0"
 downloadLocation="/home/"$userName"/Downloads/installer"
 installLocation="/home/"$userName
+wget
 if [[ $(dpkg -s wget | grep Status) != "Status: install ok installed" ]]; then
     echo "wget is not installed in this system. We will use it to download netbeans"
     sudo apt install --yes -f wget 
 fi
 # Download
 mkdir -p $downloadLocation
-wget -P $downloadLocation $binDownloadLink
-wget -O $downloadLocation"/netbeansconf.zip" $configDownloadLink
-downloadedBinZip=$(ls $downloadLocation | grep bin.zip)
-downloadedConfZip=$(ls $downloadLocation | grep conf.zip)
+cd $downloadLocation
+wget -P . $binDownloadLink
+wget -O "./netbeansconf.zip" $configDownloadLink
+downloadedBinZip=$(ls | grep incubating-netbeans | head -1)
+downloadedConfZip=$(ls | grep netbeansconf | head -1)
 # Install bin - desktop entry - config
-#unzip $downloadedBinZip -d $installLocation
+unzip $downloadedBinZip -d $installLocation
+unzip $downloadedConfZip -d $installLocation
 echo -e "[Desktop Entry]
 Encoding=UTF-8
 Name=NetBeans IDE 10
@@ -27,7 +30,7 @@ Exec=/home/"$userName"/netbeans/bin/netbeans
 Category=Development;IDE;Java;
 Type=Application
 Terminal=false
-StartupNotify=false" >> "/home/"$userName"/.local/share/applications/netTest.desktop"
-# 
-
-
+StartupNotify=false" >> "/home/"$userName"/.local/share/applications/netbeans.desktop"
+# Default conf
+/home/"$userName"/netbeans/bin/netbeans
+sed -i "s/\(IgnoreUnrecognizedVMOptions.*\)/IgnoreUnrecognizedVMOptions \-J\-Dawt\.useSystemAAFontSettings\=on \-J\-Dswing\.aatext\=true\"/g" $installLocation"/netbeans/etc/netbeans.conf"
