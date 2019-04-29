@@ -1,11 +1,10 @@
 #!/bin/bash
 # Auto download and install Netbeas 10.0 with custom config
 userName=`id -u -n`
-binDownloadLink="http://mirrors.viethosting.com/apache/incubator/netbeans/incubating-netbeans/incubating-10.0/incubating-netbeans-10.0-bin.zip"
-configDownloadLink="https://www.dropbox.com/s/md9quy42smf3onv/netbeansconf.zip?dl=0"
+binDownloadLink="https://archive.apache.org/dist/incubator/netbeans/incubating-netbeans/incubating-10.0/incubating-netbeans-10.0-bin.zip"
+#configDownloadLink="https://www.dropbox.com/s/md9quy42smf3onv/netbeansconf.zip?dl=0"
 downloadLocation="/home/"$userName"/Downloads/installer"
 installLocation="/home/"$userName
-wget
 if [[ $(dpkg -s wget | grep Status) != "Status: install ok installed" ]]; then
     echo "wget is not installed in this system. We will use it to download netbeans"
     sudo apt install --yes -f wget 
@@ -14,7 +13,7 @@ fi
 mkdir -p $downloadLocation
 cd $downloadLocation
 wget -P . $binDownloadLink
-wget -O "./netbeansconf.zip" $configDownloadLink
+#wget -O "./netbeansconf.zip" $configDownloadLink
 downloadedBinZip=$(ls | grep incubating-netbeans | head -1)
 downloadedConfZip=$(ls | grep netbeansconf | head -1)
 # Install bin - desktop entry - config
