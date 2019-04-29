@@ -21,7 +21,7 @@ then
     # that easiser
     # need more enhancement
     sudo update-alternatives --config gcc
-    g++ --version
+    sudo update-alternatives --config g++
     echo "Done"
 else
     echo "Nothing to do with it !"
