@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Zalo
+Exec=/usr/bin/firefox chat.zalo.me
+Icon=/home/tuantq3/Dropbox/Images/privateImgs/zalo-vector.png
+StartupWMClass=crx_iamgfeeembnfalcfkfcpkmgjkjlojhcd
