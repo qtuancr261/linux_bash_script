@@ -95,6 +95,33 @@ alias l='ls -CF'
 # user aliases
 alias connvpn='sudo openvpn --config ~/Downloads/script/client.ovpn'
 alias qmake_clang='qmake -spec linux-clang'
+alias lastshutdown='last -x | grep shutdown | head -5'
+alias lsport='netstat -tulanp'
+alias rm='rm -I --preserve-root' # confirmation #
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i' # Parenting changing perms on / #
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+# server network traffic monitor
+alias vnstat_eth='vnstat -i eth1'
+alias vnstat_wl='vnstat -i wlo1'
+# network bandwitdh monitor
+alias iftop_wl='iftop -i wlo1'
+# Package analyzer
+alias tcpdump='tcpdump -i wlo1'
+# meminfo
+alias meminfo='free -h -m -l -t'
+# top process eating mem
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+# top process eating cpu
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
