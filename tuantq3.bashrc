@@ -98,6 +98,7 @@ alias qmake_clang='qmake -spec linux-clang'
 alias lastshutdown='last -x | grep shutdown | head -5'
 alias lsaddr='netstat -tulanp'
 alias lsport='sudo lsof -i'
+alias grepAll='grep -rnw '.' -e'
 alias rm='rm -I --preserve-root' # confirmation #
 alias mv='mv -i'
 alias cp='cp -i'
