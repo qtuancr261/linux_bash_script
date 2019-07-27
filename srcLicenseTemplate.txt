@@ -1,0 +1,6 @@
+/*
+ * Author: %USER%
+ * File: %FILENAME%
+ * 
+ * Created on %DAY%/%MONTH%/%YEAR%
+ */
