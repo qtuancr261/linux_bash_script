@@ -213,3 +213,4 @@ source "$BASH_IT"/bash_it.sh
 # Qt build directory: ./%{JS: Util.asciify("bin-%{CurrentProject:Name}-%{CurrentKit:FileSystemName}-%{CurrentBuild:Name}")}
 # You can config the compiler for qmake to use by command: qmake -spec <compile-spec>
 # qmake specs could be found in /usr/lib/x86_64-linux-gnu/qt5/mkspecs
+# Enable port 22 for ssh connection by changing /etc/ssh/ssh_config # port 22 option
