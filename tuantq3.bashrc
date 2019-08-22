@@ -121,9 +121,9 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 # top process eating cpu
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
-
-
-
+alias connvpn='sudo openvpn --config ~/Documents/client.ovpn'
+alias qmake_clang='qmake -spec linux-clang'
+alias jp2ac='jp2a --colors'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
