@@ -14,6 +14,7 @@ read -p "-> GNU Version you want to be default: " gnu_alterVer
 if [ $gnu_defVer != $gnu_alterVer ]
 then
     echo "Switching GNU version from " $gnu_defVer " to "  "$gnu_alterVer"
+    echo "Use update-alternatives --install link name path priority"
     sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$gnu_defVer 10
     sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$gnu_alterVer 20
     sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-$gnu_defVer 10
@@ -21,6 +22,7 @@ then
     # that easiser
     # need more enhancement
     sudo update-alternatives --config gcc
+    echo "##################################################################"
     sudo update-alternatives --config g++
     echo "Done"
 else
