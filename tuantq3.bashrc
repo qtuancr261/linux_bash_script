@@ -214,3 +214,6 @@ source "$BASH_IT"/bash_it.sh
 # You can config the compiler for qmake to use by command: qmake -spec <compile-spec>
 # qmake specs could be found in /usr/lib/x86_64-linux-gnu/qt5/mkspecs
 # Enable port 22 for ssh connection by changing /etc/ssh/ssh_config # port 22 option
+# Enable older gcc version on ubuntu by adding xenial to /etc/apt/sources.list
+# deb http://dk.archive.ubuntu.com/ubuntu/ xenial main
+# deb http://dk.archive.ubuntu.com/ubuntu/ xenial universe
