@@ -44,5 +44,5 @@ Type=Application
 Terminal=false
 StartupNotify=false" >>"/home/"$userName"/.local/share/applications/netbeans_ide.desktop"
 # Default conf
-/home/"$userName"/netbeans/bin/netbeans
+# /home/"$userName"/netbeans/bin/netbeans
 sed -i "s/\(IgnoreUnrecognizedVMOptions.*\)/IgnoreUnrecognizedVMOptions \-J\-Dawt\.useSystemAAFontSettings\=on \-J\-Dswing\.aatext\=true\"/g" $installLocation"/netbeans/etc/netbeans.conf"
