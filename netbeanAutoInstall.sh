@@ -14,7 +14,7 @@ fi
 echo "Support NetBeans version:
  -> 10
  -> 11"
-read -p " -> Which version you want to install: " installVer
+read -p " => Which version you want to install: " installVer
 if [ $installVer -eq 10 ]; then
     binDownloadLink=$bin10DownloadLink
 else
@@ -45,4 +45,7 @@ Terminal=false
 StartupNotify=false" >>"/home/"$userName"/.local/share/applications/netbeans_ide.desktop"
 # Default conf
 # /home/"$userName"/netbeans/bin/netbeans
-sed -i "s/\(IgnoreUnrecognizedVMOptions.*\)/IgnoreUnrecognizedVMOptions \-J\-Dawt\.useSystemAAFontSettings\=on \-J\-Dswing\.aatext\=true\"/g" $installLocation"/netbeans/etc/netbeans.conf"
+read -p " => Do you want to enable AAFontSettings on NetBeans Yes(y), No(N) ? : " enableAAFont
+if [ enableAAFont == "y" || enableAAFont == "Yes" ] then
+    sed -i "s/\(IgnoreUnrecognizedVMOptions.*\)/IgnoreUnrecognizedVMOptions \-J\-Dawt\.useSystemAAFontSettings\=on \-J\-Dswing\.aatext\=true\"/g" $installLocation"/netbeans/etc/netbeans.conf"
+fi
