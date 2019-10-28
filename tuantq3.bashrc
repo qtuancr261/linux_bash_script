@@ -208,6 +208,7 @@ export SCM_CHECK=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
+export LD_LIBRARY_PATH=/usr/local/lib/:${LD_LIBRARY_PATH}
 
 # Tips
 # Qt build directory: ./%{JS: Util.asciify("bin-%{CurrentProject:Name}-%{CurrentKit:FileSystemName}-%{CurrentBuild:Name}")}
