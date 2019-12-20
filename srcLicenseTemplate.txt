@@ -1,6 +1,6 @@
 /*
- * Author: %USER%
- * File: %FILENAME%
+ * Author: %{Env:USER}
+ * File: %{Cpp:License:FileName}
  * 
- * Created on %DAY%/%MONTH%/%YEAR%
+ * Created on %{CurrentDate:d}/%{CurrentDate:M}/%{CurrentDate:yyyy}
  */
