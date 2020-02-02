@@ -46,6 +46,6 @@ StartupNotify=false" >>"/home/"$userName"/.local/share/applications/netbeans_ide
 # Default conf
 # /home/"$userName"/netbeans/bin/netbeans
 read -p " => Do you want to enable AAFontSettings on NetBeans Yes(y), No(N) ? : " enableAAFont
-if [ enableAAFont == "y" || enableAAFont == "Yes" ] then
+if [ enableAAFont == "y" ] || [ enableAAFont == "Yes" ]; then
     sed -i "s/\(IgnoreUnrecognizedVMOptions.*\)/IgnoreUnrecognizedVMOptions \-J\-Dawt\.useSystemAAFontSettings\=on \-J\-Dswing\.aatext\=true\"/g" $installLocation"/netbeans/etc/netbeans.conf"
 fi
