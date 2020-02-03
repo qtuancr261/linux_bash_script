@@ -23,4 +23,16 @@ then
 	timedatectl
 fi
 
-
+# Optional for kde - nvidia fix tearing
+KDE_ENV="/home/"$USER"/.config/plasma-workspace/env/"
+if [ $XDG_CURRENT_DESKTOP == "KDE" ]
+then
+	mkdir -p $KDE_ENV
+	cd $KDE_ENV
+	touch kwin.sh
+	echo -e "#!/bin/sh\nexport __GL_YIELD=\"usleep\"\nexport KWIN_TRIPLE_BUFFER=1" >> kwin.sh
+	chmod a+x kwin.sh
+	cd
+else
+	echo "tuantq3"
+fi
