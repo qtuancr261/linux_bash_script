@@ -6,7 +6,7 @@ sudo apt-get -y install openvpn resolvconf
 # Build code utils
 sudo apt-get -y install automake libtool cmake
 sudo apt-get -y install htop atop iotop dstat nethogs vim unrar rar p7zip-full uuid autoconf ssh
-sudo apt-get -y install libboost-all-dev flex unixodbc-dev mysql-client libmysqlclient-dev libevent-dev bison autoconf ssh sshfs samba libpcre++-dev libcurl3 libc6-dbg libnspr4 libnspr4-0d libnss3-1d libdb-dev
+sudo apt-get -y install libboost-all-dev flex unixodbc-dev mysql-client libmysqlclient-dev libevent-dev bison autoconf ssh sshfs samba libpcre++-dev libcurl3 libc6-dbg libnspr4 libnspr4-0d libnss3-1d libdb-dev libdb++-dev
 sudo apt-get -y install apache2 apache2-utils libapache2-mod-php5 php5 php5-dev php5-xdebug php-pear php5-cgi php5-cli php5-odbc php5-mysql
 sudo apt-get -y install libgtop2-dev openssl libssl-dev
 sudo apt-get -y install ttf-mscorefonts-installer openvpn lib32z1 lib32ncurses5 lib32bz2-1.0
