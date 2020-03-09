@@ -13,7 +13,7 @@ sudo apt-get -y install ttf-mscorefonts-installer openvpn lib32z1 lib32ncurses5 
 sudo apt-get -y install g++ subversion git
 
 # Optional for qtlib - Qt creator
-sudo apt install -y qt5-default libqt5charts5-dev qtcreator
+sudo apt install -y qt5-default libqt5charts5-dev
 
 # Optional for fix dualboot time
 read -p " => Do you want to use Local Time instead of UTC (Dualboot Time differences) Yes(y), No(N) ? : " RTC
