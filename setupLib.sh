@@ -15,6 +15,9 @@ sudo apt-get -y install g++ subversion git
 # Optional for qtlib - Qt creator
 sudo apt install -y qt5-default libqt5charts5-dev
 
+# Optinal for libboost
+sudo apt install -y libboost-all-dev
+
 # Optional for fix dualboot time
 read -p " => Do you want to use Local Time instead of UTC (Dualboot Time differences) Yes(y), No(N) ? : " RTC
 if [ $RTC == "y" ]
