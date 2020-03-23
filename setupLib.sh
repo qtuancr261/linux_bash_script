@@ -18,6 +18,12 @@ sudo apt install -y qt5-default libqt5charts5-dev
 # Optinal for libboost
 sudo apt install -y libboost-all-dev
 
+# Optinal for snapd - snap apps
+sudo apt install -y snapd
+sudo apt install -y gnome-keyring
+sudo snap install mailspring
+sudo snap install kdictionary
+
 # Optional for fix dualboot time
 read -p " => Do you want to use Local Time instead of UTC (Dualboot Time differences) Yes(y), No(N) ? : " RTC
 if [ $RTC == "y" ]
