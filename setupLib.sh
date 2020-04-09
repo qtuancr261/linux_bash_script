@@ -27,6 +27,9 @@ sudo apt install -y gnome-keyring
 sudo snap install mailspring
 sudo snap install kdictionary
 
+# ibus
+sudo apt install -y ibus
+
 # Optional for fix dualboot time
 read -p " => Do you want to use Local Time instead of UTC (Dualboot Time differences) Yes(y), No(N) ? : " RTC
 if [ $RTC == "y" ]
