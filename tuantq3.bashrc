@@ -210,6 +210,11 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 export LD_LIBRARY_PATH=/usr/local/lib/:${LD_LIBRARY_PATH}
 
+# ibus
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
 # Tips
 # Qt build directory: ./%{JS: Util.asciify("bin-%{CurrentProject:Name}-%{CurrentKit:FileSystemName}-%{CurrentBuild:Name}")}
 # You can config the compiler for qmake to use by command: qmake -spec <compile-spec>
