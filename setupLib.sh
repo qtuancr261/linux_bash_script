@@ -30,6 +30,10 @@ sudo snap install kdictionary
 
 # ibus
 sudo apt install -y ibus
+im-config -n ibus
+sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
+sudo apt update
+
 
 # Optional for fix dualboot time
 read -p " => Do you want to use Local Time instead of UTC (Dualboot Time differences) Yes(y), No(N) ? : " RTC
@@ -41,14 +45,14 @@ fi
 
 # Optional for kde - nvidia fix tearing
 KDE_ENV="/home/"$USER"/.config/plasma-workspace/env/"
-if [ $XDG_CURRENT_DESKTOP == "KDE" ]
-then
-	mkdir -p $KDE_ENV
-	cd $KDE_ENV
-	touch kwin.sh
-	echo -e "#!/bin/sh\nexport __GL_YIELD=\"usleep\"\nexport KWIN_TRIPLE_BUFFER=1" >> kwin.sh
-	chmod a+x kwin.sh
-	cd
-else
-	echo "tuantq3"
-fi
+#if [ $XDG_CURRENT_DESKTOP == "KDE" ]
+#then
+#	mkdir -p $KDE_ENV
+#	cd $KDE_ENV
+#	touch kwin.sh
+#	echo -e "#!/bin/sh\nexport __GL_YIELD=\"usleep\"\nexport KWIN_TRIPLE_BUFFER=1" >> kwin.sh
+#	chmod a+x kwin.sh
+#	cd
+#else
+#	echo "tuantq3"
+#fi
