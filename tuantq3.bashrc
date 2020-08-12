@@ -93,7 +93,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # user aliases
-alias connvpn='sudo openvpn --config ~/Downloads/script/client.ovpn'
+alias connvpn='sudo openvpn --config /zserver/script/client.ovpn'
 alias qmake_clang='qmake -spec linux-clang'
 alias lastshutdown='last -x | grep shutdown | head -5'
 alias lsaddr='netstat -tulanp'
@@ -160,7 +160,7 @@ export BASH_IT="/home/tuantq3/bash-it"
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
 # location /.bash_it/themes/
-export BASH_IT_THEME='nwinkler'
+export BASH_IT_THEME='bobby'
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
