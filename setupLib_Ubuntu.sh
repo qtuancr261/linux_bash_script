@@ -13,11 +13,11 @@ sudo apt-get -y install ttf-mscorefonts-installer openvpn lib32z1 lib32ncurses5 
 sudo apt-get -y install g++ subversion git
 
 # Optional for qtlib - Qt creatorqt5
-sudo apt install -y qt5-default libqt5charts5-dev qtmultimedia5-dev libqt5sensors5-dev
+#sudo apt install -y qt5-default libqt5charts5-dev qtmultimedia5-dev libqt5sensors5-dev
 # Qt document and examples
 #sudo apt install -y qt5-doc-html qtmultimedia5-doc qtserialport5-doc qtserialport5-doc-html qtmultimedia5-examples qt5serialport-examples qtcharts5-examples qtsensors5-examples
 # KDE advanced text editor
-sudo apt install -y kate
+#sudo apt install -y kate
 
 # Optinal for libboost
 sudo apt install -y libboost-all-dev
