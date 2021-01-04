@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build essential tool for c/c++
-sudo apt-get -y install build-essential clang clang-9 clang-format clang-format-9 clang-tools clang-tools-9
+sudo apt-get -y install build-essential clang clang-format clang-tools
 # VPN
 sudo apt-get -y install openvpn resolvconf
 # Build code utils
@@ -9,7 +9,7 @@ sudo apt-get -y install htop atop iotop dstat nethogs vim unrar rar p7zip-full u
 sudo apt-get -y install libboost-all-dev flex unixodbc-dev libevent-dev bison autoconf ssh sshfs samba libpcre++-dev libc6-dbg libdb-dev libdb++-dev
 sudo apt-get -y install libgtop2-dev openssl libssl-dev libcrypto++-dev
 sudo apt-get -y install ttf-mscorefonts-installer lib32z1 lib32ncurses5
-sudo apt-get -y install g++ subversion git
+sudo apt-get -y install g++ subversion git ubuntu-restricted-extras
 
 # Optional for qtlib - Qt creatorqt5
 #sudo apt install -y qt5-default libqt5charts5-dev qtmultimedia5-dev libqt5sensors5-dev
