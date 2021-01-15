@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build essential tool for c/c++
-sudo apt-get -y install build-essential clang clang-format clang-tools
+sudo apt-get -y install build-essential clang clang-format clang-tools cppcheck
 # VPN
 sudo apt-get -y install openvpn resolvconf
 # Build code utils
