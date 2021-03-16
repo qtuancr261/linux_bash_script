@@ -1,7 +1,9 @@
 # ----------------------------------------------------------
 # Header - (type): Brief description
 # ----------------------------------------------------------
+#   * init         Init code base
 #   * feat         A new feature
+#   * update       Update feature
 #   * fix          A bug fix
 #   * docs         Changes to documentation only
 #   * style        Style/format changes (whitespace, etc.)
