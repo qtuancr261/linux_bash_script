@@ -51,3 +51,7 @@ KDE_ENV="/home/"$USER"/.config/plasma-workspace/env/"
 #else
 #	echo "tuankjuT"
 #fi
+
+# zsh
+sudo apt install -y zsh
+echo "install oh my zsh tutorial https://www.tecmint.com/install-oh-my-zsh-in-ubuntu/"
